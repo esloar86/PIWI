@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   checklength.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eslopez- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jaalonso <jaalonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/08 09:58:31 by eslopez-          #+#    #+#             */
-/*   Updated: 2023/07/08 09:58:37 by eslopez-         ###   ########.fr       */
+/*   Created: 2023/07/16 19:58:15 by jaalonso          #+#    #+#             */
+/*   Updated: 2023/07/16 20:50:06 by anibarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar(char c)
+int	checklength(int length)
 {
-	write(1, &c, 1);
+	int	i;
+
+	i = 4;
+	while (i <= 9)
+	{
+		if ((8 * i) - 1 == length)
+		{
+			return (0);
+		}
+		i++;
+	}
+	return (1);
 }

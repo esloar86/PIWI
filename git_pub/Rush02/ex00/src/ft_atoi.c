@@ -1,18 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eslopez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/08 09:58:31 by eslopez-          #+#    #+#             */
-/*   Updated: 2023/07/08 09:58:37 by eslopez-         ###   ########.fr       */
+/*   Created: 2023/07/22 15:20:20 by eslopez-          #+#    #+#             */
+/*   Updated: 2023/07/23 21:02:32 by eslopez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <rush02_lib.h>
 
-void	ft_putchar(char c)
+int		ft_atoi(char *str)
 {
-	write(1, &c, 1);
+	int					i;
+	unsigned int		nb;
+
+	nb = 0;
+	i = 0;
+
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (-1);
+		else
+			i++;
+	}
+	i = 0;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nb = (nb * 10) + (str[i] - '0');
+		i++;
+	}
+	if (i == 0 || nb > 4294967295)
+		return (-1);
+	
+	return (nb);
 }
+

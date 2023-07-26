@@ -1,25 +1,31 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: frdescam <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: eslopez- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/06/22 14:53:12 by frdescam          #+#    #+#              #
-#    Updated: 2019/06/23 16:27:59 by frdescam         ###   ########.fr        #
+#    Created: 2023/07/22 09:53:25 by eslopez-          #+#    #+#              #
+#    Updated: 2023/07/23 21:05:43 by eslopez-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = rush-02
-SRC = main.c ft_parse_dict.c separator.c print_number.c ft_strcmp.c \
-	  input_nb.c ft_verif_dict_lenght.c
+CC = gcc -Wall -Wextra -Werror
+SRCS = ./src/main.c			\
+	  ./src/check_errors.c	\
+	  ./src/ft_atoi.c		\
+	  ./src/ft_search.c
+HEADERS =./include/
 
 all: $(NAME)
 
 $(NAME):
-	gcc -Wall -Werror -Wextra -o $(NAME) $(SRC)
+	$(CC) -o $(NAME) $(SRCS) -I $(HEADERS)
 
 fclean:
 	rm -f $(NAME)
+
+clean: fclean
 
 re: fclean all

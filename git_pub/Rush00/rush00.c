@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rush02.c                                           :+:      :+:    :+:   */
+/*   rush00.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: frdescam <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: eslopez- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/08 09:22:29 by frdescam          #+#    #+#             */
-/*   Updated: 2019/06/08 16:20:31 by ggilbert         ###   ########.fr       */
+/*   Created: 2023/07/08 10:02:59 by eslopez-          #+#    #+#             */
+/*   Updated: 2023/07/08 10:03:18 by eslopez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <unistd.h>
 
 void	ft_putchar(char c);
 
@@ -16,15 +18,15 @@ void	ft_print_first_line(int x)
 {
 	int		i;
 
-	ft_putchar('A');
+	ft_putchar('o');
 	i = 1;
 	while (i < x - 1)
 	{
-		ft_putchar('B');
+		ft_putchar('-');
 		i++;
 	}
 	if (x != 1)
-		ft_putchar('C');
+		ft_putchar('o');
 	ft_putchar('\n');
 }
 
@@ -36,7 +38,7 @@ void	ft_print_body(int x, int y)
 	j = 1;
 	while (j < y - 1)
 	{
-		ft_putchar('B');
+		ft_putchar('|');
 		i = 1;
 		while (i < x - 1)
 		{
@@ -44,7 +46,7 @@ void	ft_print_body(int x, int y)
 			i++;
 		}
 		if (x != 1)
-			ft_putchar('B');
+			ft_putchar('|');
 		ft_putchar('\n');
 		j++;
 	}
@@ -54,15 +56,15 @@ void	ft_print_last_line(int x)
 {
 	int		i;
 
-	ft_putchar('C');
+	ft_putchar('o');
 	i = 1;
 	while (i < x - 1)
 	{
-		ft_putchar('B');
+		ft_putchar('-');
 		i++;
 	}
 	if (x != 1)
-		ft_putchar('A');
+		ft_putchar('o');
 	ft_putchar('\n');
 }
 

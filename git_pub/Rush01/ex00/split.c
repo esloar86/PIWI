@@ -1,41 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaalonso <jaalonso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/15 16:55:59 by jaalonso          #+#    #+#             */
-/*   Updated: 2023/07/16 20:50:44 by anibarro         ###   ########.fr       */
+/*   Created: 2023/07/16 11:26:29 by eslopez-          #+#    #+#             */
+/*   Updated: 2023/07/16 20:58:43 by anibarro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-int	checkarguments(int argc, char *argv[]);
-int	split(int cont, char **argv);
-
-int	main(int argc, char **argv)
+int	split(int cont, char **argv)
 {
-	int	sum;
-	int	sum_tot;
+	int		y;
+	int		i;
+	int		j;
+	int		size;
+	int		k;
+	char	*positions[4];
 
-	sum = 0;
-	sum_tot = 0;
-	if (checkarguments(argc, argv) == 1)
+	y = 0;
+	while (y < 4)
 	{
-		write(1, "Error\n", 6);
-		return (1);
+		positions[y] = (char *)malloc(4 * sizeof(char));
+		y++;
 	}
-	else
+	i = 0;
+	j = 0;
+	k = 0;
+	size = cont / 4;
+	while (argv[1][i])
 	{
-		while (argv[1][sum_tot])
+		if (j == size)
 		{
-			if (argv[1][sum_tot] > 48 && argv[1][sum_tot] <= 57)
-				sum++;
-			sum_tot++;
+			positions[k][j + 1] = 0;
+			j = 0;
+			k++;
 		}
-		split(sum, argv);
+		if (argv[1][i] != 32)
+		{
+			positions[k][j] = argv[1][i];
+			j++;
+		}
+		i++;
 	}
 	return (0);
 }
